@@ -19,6 +19,6 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if(moving) myRigidbody.velocity = new Vector2(-4, myRigidbody.velocity.y);
+        if (moving) myRigidbody.velocity = new Vector2(Globals.MOVE_SPEED.x, myRigidbody.velocity.y);
     }
 }
