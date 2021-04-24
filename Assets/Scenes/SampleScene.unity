@@ -550,7 +550,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1568908847}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.3773203, y: -1.7945381, z: -13.608025}
+  m_LocalPosition: {x: 0, y: -2.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1373738342}
@@ -658,7 +658,7 @@ PrefabInstance:
     - target: {fileID: 687182807234719456, guid: 295675f1c95d5a840b1ae7b592e32707,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7
+      value: -8.32
       objectReference: {fileID: 0}
     - target: {fileID: 687182807234719456, guid: 295675f1c95d5a840b1ae7b592e32707,
         type: 3}
@@ -713,17 +713,17 @@ PrefabInstance:
     - target: {fileID: 687182807234719460, guid: 295675f1c95d5a840b1ae7b592e32707,
         type: 3}
       propertyPath: maxX
-      value: -4
+      value: -5.5
       objectReference: {fileID: 0}
     - target: {fileID: 687182807234719460, guid: 295675f1c95d5a840b1ae7b592e32707,
         type: 3}
       propertyPath: minX
-      value: -6
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 687182807234719460, guid: 295675f1c95d5a840b1ae7b592e32707,
         type: 3}
       propertyPath: jumpForce
-      value: 550
+      value: 650
       objectReference: {fileID: 0}
     - target: {fileID: 687182807234719460, guid: 295675f1c95d5a840b1ae7b592e32707,
         type: 3}
@@ -733,7 +733,7 @@ PrefabInstance:
     - target: {fileID: 687182807234719462, guid: 295675f1c95d5a840b1ae7b592e32707,
         type: 3}
       propertyPath: m_GravityScale
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 295675f1c95d5a840b1ae7b592e32707, type: 3}
