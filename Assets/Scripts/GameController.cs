@@ -9,9 +9,16 @@ public class GameController : MonoBehaviour
 
     public Action GameOverAction;
 
+    private void Start()
+    {
+        //Reset global move speed
+        Globals.MOVE_SPEED = new Vector2(-5f, 0f);
+    }
+
     public void GameOver()
     {
         GameOverAction?.Invoke();
+        Globals.MOVE_SPEED = Vector2.zero;
     }
 
     public void Restart()
@@ -20,21 +27,20 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("MainScene");
     }
 
-    public void PlayGame()
-    {
-        SceneManager.LoadScene("MainScene");
-    }
-
     public void QuitToTitle()
     {
         SceneManager.LoadScene("TitleScene");
-        Debug.Log("Quit to Title");
     }
 
     public void QuitToDesktop()
     {
         Debug.Log("Quit to Desktop");
         Application.Quit();
+    }
+
+    public void PlayGame()
+    {
+        SceneManager.LoadScene("MainScene");
     }
 
 }

@@ -46,7 +46,7 @@ public class BackgroundParallax : MonoBehaviour
 
     private Transform InstantiateBG(Transform bg)
     {
-        return Instantiate(bg, new Vector3(xOffsetNext, transform.position.y), Quaternion.identity, transform);
+        return Instantiate(bg, new Vector3(xOffsetNext, bg.position.y), Quaternion.identity, transform);
     }
 
 }
