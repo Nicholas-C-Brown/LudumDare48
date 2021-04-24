@@ -5,46 +5,54 @@ using UnityEngine;
 public class MovePlayer : MonoBehaviour
 {
 
-    //Player variables
+    //Player components
     private Rigidbody2D player;
-    public float hSpeed = 1;
-    public float jumpForce = 490;
+    private Animator animator;
+
+    //Movement
+    private float moveDir = 1;
+    [SerializeField]
+    private float moveSpeed = 2;
+
+    [SerializeField]
+    private float jumpForce = 400;
     private bool jumping;
-    // Start is called before the first frame update
+    
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        getInput();
-        move();
+        GetInput();
+        Move();
     }
 
-    private void getInput()
+    private void GetInput()
     {
-        hSpeed = 0;
+        moveDir = 0;
         jumping = false;
         // check for horizontal movement
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
-            hSpeed = -500;
+            moveDir = -1 * moveSpeed;
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
-            hSpeed = 500;
+            moveDir = 1 * moveSpeed;
         }
 
         // check for jump
         if (Input.GetKeyDown(KeyCode.Space)) jumping = true;
     }
 
-    private void move()
+    private void Move()
     {
-        if (jumping) player.AddForce(new Vector2(hSpeed, jumpForce));
-        else player.AddForce(new Vector2(hSpeed, 0));
+        if (jumping) player.AddForce(Vector2.up * jumpForce);
+
+        player.velocity = new Vector2(moveDir, player.velocity.y);
         
     }
 }
