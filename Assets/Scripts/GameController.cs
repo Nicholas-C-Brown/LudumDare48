@@ -28,6 +28,7 @@ public class GameController : MonoBehaviour
 
     public void QuitToTitle()
     {
+        SceneManager.LoadScene("TitleScene");
         Debug.Log("Quit to Title");
     }
 
