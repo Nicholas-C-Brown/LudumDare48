@@ -7,18 +7,17 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
 
-    public Action StopMovement;
+    public Action GameOverAction;
 
     public void GameOver()
     {
-        StopMovement?.Invoke();
+        GameOverAction?.Invoke();
     }
 
     public void Restart()
     {
         //reload game scene
         SceneManager.LoadScene("SampleScene");
-        Debug.Log("Restart");
     }
 
 }
