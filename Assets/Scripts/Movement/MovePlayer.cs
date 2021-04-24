@@ -24,6 +24,8 @@ public class MovePlayer : MonoBehaviour
     [SerializeField]
     private float minX = -6, maxX = -4;
     private float moveDir = 1;
+    private float minY = -2;
+    private bool canFall = true;
 
     [SerializeField]
     private float jumpForce = 550;
@@ -45,6 +47,11 @@ public class MovePlayer : MonoBehaviour
 
         GetInput();
         Move();
+        if (IsFalling() && canFall)
+        {
+            canFall = false;
+            Die();
+        }
         Animate();
     }
 
@@ -128,6 +135,16 @@ public class MovePlayer : MonoBehaviour
 
         //Play die animation
         animator.SetTrigger("Die");
+    }
+
+    public bool IsFalling()
+    {
+        
+        if (player.position.y < minY)
+        {
+            return true;
+        }
+        else return false;
     }
 
     private bool OnGround()
