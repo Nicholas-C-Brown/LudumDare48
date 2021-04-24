@@ -48,6 +48,7 @@ public class MovePlayer : MonoBehaviour
             moveDir = 1 * moveSpeed;
         }
 
+        // check if we're sliding
         if (Input.GetKey(KeyCode.LeftShift))
         {
             slide = true;
@@ -59,25 +60,31 @@ public class MovePlayer : MonoBehaviour
 
     private void Move()
     {
+        //if jumping then add force upwards and change jumping parameter in scene to true
         if (jumping)
         {
             animator.SetBool("Jumping", true);
             player.AddForce(Vector2.up * jumpForce);
-        } else
+        } 
+        // else change jumping parameter to false
+        else
         {
             animator.SetBool("Jumping", false);
         }
+
+        // Add horizontal movement to player
         player.velocity = new Vector2(moveDir, player.velocity.y);
 
+        // if sliding change sliding parameter in scene to true
         if (slide)
         {
             animator.SetBool("Sliding", true);
             Debug.Log("Yo we sliding");
-        } else
+        } 
+        // otherwise change back to false
+        else
         {
             animator.SetBool("Sliding", false);
-        }
-        
+        }  
     }
-
 }
