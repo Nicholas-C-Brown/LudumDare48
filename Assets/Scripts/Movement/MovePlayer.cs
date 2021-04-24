@@ -142,7 +142,6 @@ public class MovePlayer : MonoBehaviour
         
         if (player.position.y < minY)
         {
-            Debug.Log("Yo I think we falling");
             return true;
         }
         else return false;

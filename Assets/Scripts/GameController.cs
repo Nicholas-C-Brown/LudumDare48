@@ -22,7 +22,6 @@ public class GameController : MonoBehaviour
 
     public void PlayGame()
     {
-       // SceneManager.UnloadSceneAsync("TitleScene");
         SceneManager.LoadScene("MainScene");
     }
 
