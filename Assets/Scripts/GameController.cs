@@ -28,6 +28,7 @@ public class GameController : MonoBehaviour
     public void QuitToDesktop()
     {
         Debug.Log("Quit to Desktop");
+        Application.Quit();
     }
 
 }
