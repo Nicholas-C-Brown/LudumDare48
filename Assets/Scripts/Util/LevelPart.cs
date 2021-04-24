@@ -8,6 +8,6 @@ public class LevelPart : MonoBehaviour
 
     void Update()
     {
-        gameObject.transform.position += Globals.MOVE_SPEED * Time.deltaTime;
+        gameObject.transform.position += (Vector3)Globals.MOVE_SPEED * Time.deltaTime;
     }
 }
