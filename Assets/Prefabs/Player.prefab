@@ -53,7 +53,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &687182807234719463
 BoxCollider2D:
@@ -100,7 +100,8 @@ MonoBehaviour:
   moveSpeed: 1.5
   minX: -7
   maxX: -4
-  jumpForce: 650
+  minY: -5
+  jumpForce: 750
 --- !u!1 &4265386293694862790
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,7 +175,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a62ed15f4a3a5fe4bab1ba3583e7c055, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4716981, g: 0.45167318, b: 0.45167318, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
