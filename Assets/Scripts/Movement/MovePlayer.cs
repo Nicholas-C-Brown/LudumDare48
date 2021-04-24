@@ -38,7 +38,7 @@ public class MovePlayer : MonoBehaviour
     private void move()
     {
         // translate if horizontal movement exists
-        if (hSpeed != 0) transform.Translate(new Vector3(hSpeed, player.velocity.y, 0));
+        if (hSpeed != 0) transform.Translate(new Vector2(hSpeed, player.velocity.y));
         if (jumping) player.AddForce(new Vector2(0, jumpForce));
         
     }
