@@ -20,6 +20,12 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
+    public void PlayGame()
+    {
+       // SceneManager.UnloadSceneAsync("TitleScene");
+        SceneManager.LoadScene("SampleScene");
+    }
+
     public void QuitToTitle()
     {
         Debug.Log("Quit to Title");
