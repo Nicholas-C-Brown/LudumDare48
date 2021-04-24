@@ -24,6 +24,8 @@ public class MovePlayer : MonoBehaviour
     [SerializeField]
     private float minX = -6, maxX = -4;
     private float moveDir = 1;
+    [SerializeField]
+    private float minY = -5;
 
     [SerializeField]
     private float jumpForce = 550;
@@ -33,7 +35,8 @@ public class MovePlayer : MonoBehaviour
         ON_GROUND,
         JUMPING,
         IN_AIR,
-        SLIDING
+        SLIDING,
+        DYING
     }
 
     private State state;
@@ -42,6 +45,8 @@ public class MovePlayer : MonoBehaviour
     {
         //Update to IN_AIR state the frame after the player jumps
         if (IsJumping()) state = State.IN_AIR;
+
+        if (IsFalling()) Die();
 
         GetInput();
         Move();
@@ -120,6 +125,9 @@ public class MovePlayer : MonoBehaviour
 
     public void Die()
     {
+        if (IsDying()) return;
+        state = State.DYING;
+
         //Stop map/enemy movement (Pause Event?)
         controller.GameOver();
 
@@ -128,6 +136,11 @@ public class MovePlayer : MonoBehaviour
 
         //Play die animation
         animator.SetTrigger("Die");
+    }
+
+    public bool IsFalling()
+    {
+        return player.position.y < minY;   
     }
 
     private bool OnGround()
@@ -148,5 +161,10 @@ public class MovePlayer : MonoBehaviour
     private bool InAir()
     {
         return state == State.IN_AIR;
+    }
+
+    private bool IsDying()
+    {
+        return state == State.DYING;
     }
 }
