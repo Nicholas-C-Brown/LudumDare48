@@ -5,6 +5,10 @@ using UnityEngine;
 public class MovePlayer : MonoBehaviour
 {
 
+    [Header("Controller")]
+    [SerializeField]
+    private GameController controller;
+
     [Header("Components")]
     [SerializeField]
     private Rigidbody2D player;
@@ -117,6 +121,7 @@ public class MovePlayer : MonoBehaviour
     private void Die()
     {
         //Stop map/enemy movement (Pause Event?)
+        controller.GameOver();
 
         //Disable Collider
         collider.enabled = false;
