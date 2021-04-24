@@ -13,7 +13,7 @@ public class MovePlayer : MonoBehaviour
     [SerializeField]
     private Rigidbody2D player;
     [SerializeField]
-    private BoxCollider2D collider;
+    private BoxCollider2D collider2d;
     [SerializeField]
     private Animator animator;
     
@@ -124,7 +124,7 @@ public class MovePlayer : MonoBehaviour
         controller.GameOver();
 
         //Disable Collider
-        collider.enabled = false;
+        collider2d.enabled = false;
 
         //Play die animation
         animator.SetTrigger("Die");

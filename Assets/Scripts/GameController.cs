@@ -20,4 +20,14 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
+    public void QuitToTitle()
+    {
+        Debug.Log("Quit to Title");
+    }
+
+    public void QuitToDesktop()
+    {
+        Debug.Log("Quit to Desktop");
+    }
+
 }
