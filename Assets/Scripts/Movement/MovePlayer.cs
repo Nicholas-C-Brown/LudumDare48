@@ -118,7 +118,7 @@ public class MovePlayer : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
     {
         //Stop map/enemy movement (Pause Event?)
         controller.GameOver();

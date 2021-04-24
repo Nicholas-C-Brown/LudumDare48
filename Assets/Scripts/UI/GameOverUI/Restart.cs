@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Restart : GameOverMenuButton
+public class Restart : MenuButton
 {
 
     protected override void ClickAction()

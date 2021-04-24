@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuitToTitle : MenuButton
+public class DieTestButton : MenuButton
 {
+    public MovePlayer player;
+
     protected override void ClickAction()
     {
-        controller.QuitToTitle();
+        player.Die();
     }
 }
