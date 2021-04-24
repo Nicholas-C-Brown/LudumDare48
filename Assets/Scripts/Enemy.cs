@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         moving = true;
-        controller.StopMovement += () => moving = false;
+        controller.GameOverAction += () => moving = false;
     }
 
     void Update()

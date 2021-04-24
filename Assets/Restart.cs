@@ -14,7 +14,7 @@ public class Restart : MonoBehaviour
 
     private void Start()
     {
-        controller.StopMovement += () => animator.SetTrigger("Enter");
+        controller.GameOverAction += () => animator.SetTrigger("Enter");
     }
 
     public void OnClick()

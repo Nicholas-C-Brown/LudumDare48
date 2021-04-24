@@ -128,9 +128,6 @@ public class MovePlayer : MonoBehaviour
 
         //Play die animation
         animator.SetTrigger("Die");
-
-        //Open UI
-
     }
 
     private bool OnGround()
