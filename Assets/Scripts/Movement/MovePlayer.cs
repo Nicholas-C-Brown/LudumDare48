@@ -24,7 +24,8 @@ public class MovePlayer : MonoBehaviour
     {
         ON_GROUND,
         JUMPING,
-        IN_AIR
+        IN_AIR,
+        SLIDING
     }
 
     private State state;
@@ -57,7 +58,6 @@ public class MovePlayer : MonoBehaviour
     private void GetInput()
     {
         moveDir = 0;
-        slide = false;
         // check for horizontal movement
         if (Input.GetKey(KeyCode.A))
         {
@@ -69,13 +69,17 @@ public class MovePlayer : MonoBehaviour
         }
 
         // check if we're sliding
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && OnGround())
         {
-            slide = true;
+            state = State.SLIDING;
+        } 
+        else if(!Input.GetKey(KeyCode.LeftShift) && IsSliding())
+        {
+            state = State.ON_GROUND;
         }
 
         // check for jump
-        if (Input.GetKeyDown(KeyCode.Space) && OnGround()) state = State.JUMPING;
+        if (Input.GetKeyDown(KeyCode.Space) && (OnGround() || IsSliding())) state = State.JUMPING;
     }
 
     private void Move()
@@ -89,13 +93,31 @@ public class MovePlayer : MonoBehaviour
 
     private void Animate()
     {
-        if (IsJumping()) animator.SetBool("Jumping", true);
-        if (OnGround()) animator.SetBool("Jumping", false);
+        if (IsJumping())
+        {
+            animator.SetBool("Jumping", true);
+            animator.SetBool("Sliding", false);
+        }
+        if (IsSliding())
+        {
+            animator.SetBool("Jumping", false);
+            animator.SetBool("Sliding", true);
+        }
+        if (OnGround())
+        {
+            animator.SetBool("Jumping", false);
+            animator.SetBool("Sliding", false);
+        }
     }
 
     private bool OnGround()
     {
         return state == State.ON_GROUND;
+    }
+
+    private bool IsSliding()
+    {
+        return state == State.SLIDING;
     }
 
     private bool IsJumping()
