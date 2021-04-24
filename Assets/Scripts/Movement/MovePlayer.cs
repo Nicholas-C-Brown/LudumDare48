@@ -30,11 +30,11 @@ public class MovePlayer : MonoBehaviour
         // check for horizontal movement
         if (Input.GetKeyDown(KeyCode.A))
         {
-            hSpeed = -1;
+            hSpeed = -500;
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
-            hSpeed = 1;
+            hSpeed = 500;
         }
 
         // check for jump
@@ -43,9 +43,8 @@ public class MovePlayer : MonoBehaviour
 
     private void move()
     {
-        // translate if horizontal movement exists
-        player.velocity = new Vector2(player.velocity.x + hSpeed, player.velocity.y);
-        if (jumping) player.AddForce(new Vector2(0, jumpForce));
+        if (jumping) player.AddForce(new Vector2(hSpeed, jumpForce));
+        else player.AddForce(new Vector2(hSpeed, 0));
         
     }
 }
