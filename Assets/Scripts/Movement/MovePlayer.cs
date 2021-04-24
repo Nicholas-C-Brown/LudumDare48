@@ -5,17 +5,21 @@ using UnityEngine;
 public class MovePlayer : MonoBehaviour
 {
 
-    //Player components
+    [Header("Components")]
+    [SerializeField]
     private Rigidbody2D player;
-    private Animator animator;
+    [SerializeField]
     private BoxCollider2D collider;
+    [SerializeField]
+    private Animator animator;
+    
 
-    //Movement
-    private float moveDir = 1;
+    [Header("Movement")]
     [SerializeField]
     private float moveSpeed = 1.5f;
     [SerializeField]
     private float minX = -6, maxX = -4;
+    private float moveDir = 1;
 
     [SerializeField]
     private float jumpForce = 550;
@@ -30,13 +34,6 @@ public class MovePlayer : MonoBehaviour
 
     private State state;
 
-    void Start()
-    {
-        player = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        collider = GetComponent<BoxCollider2D>();
-    }
-
     void Update()
     {
         //Update to IN_AIR state the frame after the player jumps
@@ -49,6 +46,13 @@ public class MovePlayer : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //Enemy Check
+        if (collision.gameObject.CompareTag(Globals.ENEMY_TAG))
+        {
+            Die();
+        }
+
+        //Ground Check
         if (InAir() && collision.gameObject.CompareTag(Globals.GROUND_TAG))
         {
             state = State.ON_GROUND;
@@ -108,6 +112,20 @@ public class MovePlayer : MonoBehaviour
             animator.SetBool("Jumping", false);
             animator.SetBool("Sliding", false);
         }
+    }
+
+    private void Die()
+    {
+        //Stop map/enemy movement (Pause Event?)
+
+        //Disable Collider
+        collider.enabled = false;
+
+        //Play die animation
+        animator.SetTrigger("Die");
+
+        //Open UI
+
     }
 
     private bool OnGround()
