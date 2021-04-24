@@ -1160,6 +1160,77 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175361566}
   m_CullTransparentMesh: 1
+--- !u!1 &1182272265 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2799769779691640321, guid: a69b8e46f92ed5e49891f2bd0a68a9a6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2799769778946912011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!68 &1182272268
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182272265}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -7.4645934, y: 1.8057097}
+  - {x: -7.2946577, y: 1.6944549}
+  - {x: -7.306591, y: 1.2230139}
+  - {x: -7.090269, y: 0.8806422}
+  - {x: -6.803957, y: 0.70098186}
+  - {x: -6.6985593, y: 1.1054173}
+  - {x: -6.3440833, y: 0.91181564}
+  - {x: -6.026034, y: 1.4659154}
+  - {x: -5.6248684, y: 1.0990753}
+  - {x: -5.44468, y: 1.4969997}
+  - {x: -5.1991353, y: 1.1903324}
+  - {x: -4.7260714, y: 1.6468339}
+  - {x: -4.19043, y: 1.1924918}
+  - {x: -3.6081426, y: 1.6740541}
+  - {x: -3.1484027, y: 1.032454}
+  - {x: -2.5937848, y: 1.8429418}
+  - {x: -2.3266704, y: 1.555877}
+  - {x: -2.075728, y: 1.8634193}
+  - {x: -1.5881215, y: 1.1335194}
+  - {x: -0.7957107, y: 0.4223485}
+  - {x: -0.6300564, y: 0.58472157}
+  - {x: -0.3375376, y: 0.34615397}
+  - {x: 0.22917694, y: 1.4543054}
+  - {x: 0.4889469, y: 1.2394674}
+  - {x: 0.917241, y: 1.7024703}
+  - {x: 1.3075603, y: 1.5325422}
+  - {x: 1.6869822, y: 1.7956221}
+  - {x: 1.9252032, y: 1.2752898}
+  - {x: 2.187662, y: 1.7918518}
+  - {x: 2.3666906, y: 1.0105588}
+  - {x: 2.7421253, y: 0.7031176}
+  - {x: 2.9777057, y: 1.0848625}
+  - {x: 3.1968586, y: 0.9185319}
+  - {x: 3.6483214, y: 1.4121284}
+  - {x: 3.8670354, y: 1.0919774}
+  - {x: 4.171634, y: 1.3934369}
+  - {x: 4.3958993, y: 1.1933289}
+  - {x: 4.8607144, y: 1.6791418}
+  - {x: 5.421812, y: 1.2363362}
+  - {x: 5.966493, y: 1.7701056}
+  - {x: 6.286235, y: 1.0796125}
+  - {x: 6.628784, y: 0.9926398}
+  - {x: 7.112667, y: 1.892103}
+  - {x: 7.289057, y: 1.5665507}
+  - {x: 7.5, y: 1.8647197}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &1281855659
 GameObject:
   m_ObjectHideFlags: 0
@@ -2284,6 +2355,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 687182807234719460, guid: 295675f1c95d5a840b1ae7b592e32707,
+        type: 3}
+      propertyPath: jumpForce
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 687182807234719460, guid: 295675f1c95d5a840b1ae7b592e32707,
         type: 3}
