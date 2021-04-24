@@ -28,7 +28,7 @@ public class MovePlayer : MonoBehaviour
     }
 
     private State state;
-    
+
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
@@ -57,7 +57,7 @@ public class MovePlayer : MonoBehaviour
     private void GetInput()
     {
         moveDir = 0;
-        
+        slide = false;
         // check for horizontal movement
         if (Input.GetKey(KeyCode.A))
         {
@@ -68,6 +68,12 @@ public class MovePlayer : MonoBehaviour
             moveDir = 1 * moveSpeed;
         }
 
+        // check if we're sliding
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            slide = true;
+        }
+
         // check for jump
         if (Input.GetKeyDown(KeyCode.Space) && OnGround()) state = State.JUMPING;
     }
@@ -76,6 +82,7 @@ public class MovePlayer : MonoBehaviour
     {
         if (IsJumping()) player.AddForce(Vector2.up * jumpForce);
 
+        // Add horizontal movement to player
         player.velocity = new Vector2(moveDir, player.velocity.y);
         player.position = new Vector2(Mathf.Clamp(player.position.x, minX, maxX), player.position.y);
     }
