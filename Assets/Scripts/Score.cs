@@ -33,8 +33,8 @@ public class Score : MonoBehaviour
         PlayerScore = 0;
 
         //Set Text
-        highscoreText.text = "Highscore: " + HighScore;
-        scoreText.text = "Score: " + (int)PlayerScore;
+        highscoreText.text = "Highscore: " + HighScore + "m";
+        scoreText.text = "Score: " + (int)PlayerScore + "m";
 
         playing = true;
         controller.GameOverAction += () =>
@@ -44,7 +44,7 @@ public class Score : MonoBehaviour
             //Update highscore
             if (PlayerScore > HighScore) HighScore = (int)PlayerScore;
             SaveSystem.SaveScore(this);
-            highscoreText.text = "Highscore: " + HighScore;
+            highscoreText.text = "Highscore: " + HighScore + "m";
         };
     }
 
@@ -53,7 +53,7 @@ public class Score : MonoBehaviour
         if (playing)
         {
             PlayerScore += Time.deltaTime * scoreMultiplier;
-            scoreText.text = "Score: " + (int)PlayerScore;
+            scoreText.text = "Score: " + (int)PlayerScore + "m";
         }
     }
 

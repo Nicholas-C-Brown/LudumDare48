@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour
     public void Restart()
     {
         //reload game scene
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("MainScene");
     }
 
     public void QuitToTitle()

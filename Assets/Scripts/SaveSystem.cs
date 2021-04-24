@@ -21,7 +21,7 @@ public static class SaveSystem
     public static ScoreData LoadScore()
     {
         string path = GetPath();
-        
+
         if (!ScoreFileExists())
         {
             Debug.LogError("Score file not found in " + path);
