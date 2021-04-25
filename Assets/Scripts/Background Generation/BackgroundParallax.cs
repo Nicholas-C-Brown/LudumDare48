@@ -11,7 +11,7 @@ public class BackgroundParallax : MonoBehaviour
     private List<Transform> bgInstanceList;
 
     [SerializeField]
-    private const float xOffsetNext = 30, xOffsetPrev = -30;
+    private float xOffsetNext = 30, xOffsetPrev = -30;
 
     void Start()
     {
