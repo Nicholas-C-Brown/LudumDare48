@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MovePlayer : MonoBehaviour
 {
-
     [Header("Controller")]
     [SerializeField]
     private GameController controller;
@@ -12,22 +9,29 @@ public class MovePlayer : MonoBehaviour
     [Header("Components")]
     [SerializeField]
     private Rigidbody2D player;
+
     [SerializeField]
-    private BoxCollider2D collider2d;
+    private BoxCollider2D standCollider, slideCollider;
+
+    private BoxCollider2D enabledCollider;
+
     [SerializeField]
     private Animator animator;
+
     [SerializeField]
-    private Transform raycastTransform;
-    
+    private LayerMask mask;
 
     [Header("Movement")]
     [SerializeField]
     private float moveSpeed = 1.5f;
+
     [SerializeField]
     private float minX = -6, maxX = -4;
-    private float moveDir = 1;
+
     [SerializeField]
-    private float minY = -5;
+    private float boundsX = -10, boundsY = -5;
+
+    private float moveDir = 1;
 
     [SerializeField]
     private float jumpForce = 550;
@@ -43,35 +47,46 @@ public class MovePlayer : MonoBehaviour
 
     private State state;
 
-    void Update()
+    private void Start()
     {
+        enabledCollider = standCollider;
+    }
 
-        
-        if (IsJumping()) state = State.IN_AIR;
+    private void Update()
+    {
+        //Update to IN AIR state the frame after jumping
+        if (IsState(State.JUMPING)) state = State.IN_AIR;
+
+        //If player is out of bounds then trigger death
         if (IsOOB()) Die();
-        //FallingCheck();
+
+        //Perform ground check and update state accordingly
+        if (GroundCheck() && IsState(State.IN_AIR))
+            state = State.ON_GROUND;
+        else if (!GroundCheck() && (IsState(State.ON_GROUND) || IsState(State.SLIDING)))
+            state = State.IN_AIR;
+
+        //Update player collider
+        if (IsState(State.SLIDING))
+        {
+            slideCollider.enabled = true;
+            standCollider.enabled = false;
+            enabledCollider = slideCollider;
+        }
+        else
+        {
+            slideCollider.enabled = false;
+            standCollider.enabled = true;
+            enabledCollider = standCollider;
+        }
 
         GetInput();
         Move();
         Animate();
     }
 
-    private void FallingCheck()
-    {
-        LayerMask mask = LayerMask.GetMask("Default");
-        RaycastHit2D hit = Physics2D.Raycast(raycastTransform.position, Vector2.down, 0.5f, mask, 0, 0);
-     
-        if(hit.collider == null && (OnGround() || IsSliding())) state = State.IN_AIR;
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Ground Check
-        if (InAir() && collision.gameObject.CompareTag(Globals.GROUND_TAG))
-        {
-            state = State.ON_GROUND;
-        }
-
         //Enemy Check
         if (collision.gameObject.CompareTag(Globals.ENEMY_TAG))
         {
@@ -83,109 +98,115 @@ public class MovePlayer : MonoBehaviour
     {
         moveDir = 0;
         // check for horizontal movement
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && player.position.x > minX)
         {
             moveDir = -1 * moveSpeed;
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D) && player.position.x < maxX)
         {
             moveDir = 1 * moveSpeed;
         }
 
         // check if we're sliding
-        if (Input.GetKey(KeyCode.LeftShift) && OnGround())
+        if (Input.GetKey(KeyCode.LeftShift) && IsState(State.ON_GROUND))
         {
             state = State.SLIDING;
-        } 
-        else if(!Input.GetKey(KeyCode.LeftShift) && IsSliding())
+        }
+        //TODO add roof check
+        else if (!Input.GetKey(KeyCode.LeftShift) && IsState(State.SLIDING) && !RoofCheck())
         {
             state = State.ON_GROUND;
         }
 
         // check for jump
-        if (Input.GetKeyDown(KeyCode.Space) && (OnGround() || IsSliding())) state = State.JUMPING;
+        if (Input.GetKeyDown(KeyCode.Space) &&
+            (IsState(State.ON_GROUND) || IsState(State.SLIDING)))
+        {
+            state = State.JUMPING;
+        }
     }
 
     private void Move()
     {
-        if (IsJumping()) player.AddForce(Vector2.up * jumpForce);
+        if (IsState(State.JUMPING)) player.AddForce(Vector2.up * jumpForce);
 
         // Add horizontal movement to player
         player.velocity = new Vector2(moveDir, player.velocity.y);
-        player.position = new Vector2(Mathf.Clamp(player.position.x, minX, maxX), player.position.y);
-
-        if (IsSliding())
-        {
-            collider2d.offset = new Vector2(collider2d.offset.x, -0.735f);
-            collider2d.size = new Vector2(collider2d.size.x, 0.883f);
-        } else
-        {
-            collider2d.offset = new Vector2(collider2d.offset.x, -0.340f);
-            collider2d.size = new Vector2(collider2d.size.x, 1.674f);
-        }
     }
 
     private void Animate()
     {
-        if (IsJumping())
+        if (IsState(State.JUMPING))
         {
-            animator.SetBool("Jumping", true);
+            animator.SetBool("Sliding", false);
+            animator.SetBool("Falling", false);
+
+            animator.SetTrigger("Jump");
+        }
+
+        else if (IsState(State.IN_AIR))
+        {
+            animator.SetBool("Falling", true);
             animator.SetBool("Sliding", false);
         }
-        if (IsSliding())
+
+        else if (IsState(State.SLIDING))
         {
-            animator.SetBool("Jumping", false);
+            animator.SetBool("Falling", false);
             animator.SetBool("Sliding", true);
         }
-        if (OnGround())
+        
+        else if (IsState(State.ON_GROUND))
         {
-            animator.SetBool("Jumping", false);
+            animator.SetBool("Falling", false);
             animator.SetBool("Sliding", false);
         }
     }
 
     public void Die()
     {
-        if (IsDying()) return;
+        //If player is already dying don't die again
+        if (IsState(State.DYING)) return;
+
         state = State.DYING;
 
-        //Stop map/enemy movement (Pause Event?)
+        //Stop map/enemy movement
         controller.GameOver();
 
         //Disable Collider
-        collider2d.enabled = false;
+        enabledCollider.enabled = false;
 
         //Play die animation
         animator.SetTrigger("Die");
     }
 
+    private bool GroundCheck()
+    {
+        float extraHeight = 0.5f;
+        RaycastHit2D hit = Physics2D.BoxCast(enabledCollider.bounds.center, enabledCollider.bounds.size, 0f, Vector2.down, extraHeight, mask);
+
+        if (hit.collider == null) return false;
+        //Only return true if we collide with ground
+        else return hit.collider.CompareTag(Globals.GROUND_TAG);
+    }
+
+    private bool RoofCheck()
+    {
+        float extraHeight = 0.5f;
+        RaycastHit2D hit = Physics2D.BoxCast(enabledCollider.bounds.center, enabledCollider.bounds.size, 0f, Vector2.up, extraHeight, mask);
+
+        if (hit.collider == null) return false;
+        //Only return true if we collide with ground
+        else return hit.collider.CompareTag(Globals.GROUND_TAG);
+    }
+
     public bool IsOOB()
     {
-        return player.position.y < minY;   
+        return player.position.y < boundsY || player.position.x < boundsX;
     }
 
-    private bool OnGround()
+    private bool IsState(State state)
     {
-        return state == State.ON_GROUND;
-    }
-
-    private bool IsSliding()
-    {
-        return state == State.SLIDING;
-    }
-
-    private bool IsJumping()
-    {
-        return state == State.JUMPING;
-    }
-
-    private bool InAir()
-    {
-        return state == State.IN_AIR;
-    }
-
-    private bool IsDying()
-    {
-        return state == State.DYING;
+        return this.state == state;
     }
 }

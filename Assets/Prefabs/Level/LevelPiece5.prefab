@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 4037793660077622477}
   - component: {fileID: 9151239396488291686}
   m_Layer: 0
-  m_Name: Objects_100
+  m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -249,6 +249,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1601169533171024032, guid: 45fda3b2858fd9f49a85028391c43807,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141183159487578893, guid: 45fda3b2858fd9f49a85028391c43807,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6346488167941265300, guid: 45fda3b2858fd9f49a85028391c43807,
         type: 3}
       propertyPath: m_Name
@@ -257,7 +267,17 @@ PrefabInstance:
     - target: {fileID: 6346488167941265300, guid: 45fda3b2858fd9f49a85028391c43807,
         type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 6786054908503656380, guid: 45fda3b2858fd9f49a85028391c43807,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884840213323028144, guid: 45fda3b2858fd9f49a85028391c43807,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45fda3b2858fd9f49a85028391c43807, type: 3}
