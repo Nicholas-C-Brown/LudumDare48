@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField]
     GameController controller;
 
     private Rigidbody2D myRigidbody;
@@ -12,6 +11,8 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+
         myRigidbody = GetComponent<Rigidbody2D>();
         moving = true;
         controller.GameOverAction += () => moving = false;

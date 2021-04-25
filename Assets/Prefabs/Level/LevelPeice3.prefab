@@ -1357,7 +1357,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4921199814274140387}
-  - component: {fileID: 1538555081029877853}
+  - component: {fileID: 4960417809448611055}
   m_Layer: 0
   m_Name: Cliff
   m_TagString: Ground
@@ -1395,8 +1395,8 @@ Transform:
   m_Father: {fileID: 5167004106301908085}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &1538555081029877853
-EdgeCollider2D:
+--- !u!60 &4960417809448611055
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1409,18 +1409,25 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   m_Points:
-  - {x: -15.231861, y: -0.00024943054}
-  - {x: -3.9995399, y: -0.0028958619}
-  - {x: -2.3812954, y: 0.5005546}
-  - {x: -1.3969738, y: 0.99288714}
-  - {x: -0.58694565, y: 1.4835486}
-  - {x: 1.4864945, y: 1.5106438}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
+    m_Paths:
+    - - {x: 1.5117667, y: 1.5163779}
+      - {x: -0.516914, y: 1.4952137}
+      - {x: -2.261401, y: 0.4526611}
+      - {x: -4.008436, y: -0.0011985004}
+      - {x: -15.209069, y: 0.003928989}
+      - {x: -15.214018, y: -0.73475385}
+      - {x: -1.0976415, y: -0.92195785}
+      - {x: -0.5019202, y: 0.058503807}
 --- !u!1 &9113538568502032773
 GameObject:
   m_ObjectHideFlags: 0
