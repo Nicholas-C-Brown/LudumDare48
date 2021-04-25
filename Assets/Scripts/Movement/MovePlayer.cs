@@ -102,6 +102,16 @@ public class MovePlayer : MonoBehaviour
         // Add horizontal movement to player
         player.velocity = new Vector2(moveDir, player.velocity.y);
         player.position = new Vector2(Mathf.Clamp(player.position.x, minX, maxX), player.position.y);
+
+        if (IsSliding())
+        {
+            collider2d.offset = new Vector2(collider2d.offset.x, -0.735f);
+            collider2d.size = new Vector2(collider2d.size.x, 0.883f);
+        } else
+        {
+            collider2d.offset = new Vector2(collider2d.offset.x, -0.340f);
+            collider2d.size = new Vector2(collider2d.size.x, 1.674f);
+        }
     }
 
     private void Animate()

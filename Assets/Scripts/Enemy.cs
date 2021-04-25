@@ -20,5 +20,6 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         if (moving) myRigidbody.velocity = new Vector2(Globals.MOVE_SPEED.x, myRigidbody.velocity.y);
+        else myRigidbody.velocity = Vector2.zero;
     }
 }
