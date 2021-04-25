@@ -385,7 +385,11 @@ MonoBehaviour:
   startingPart: {fileID: 1835163339}
   partList:
   - {fileID: 7583563930063889422, guid: e33e9a00fccc2fe4dba34fb202db8d2f, type: 3}
+<<<<<<< Updated upstream
   - {fileID: 7583563930063889422, guid: cfd611839286d7649b5f63677ab76067, type: 3}
+=======
+  - {fileID: 96643752815953355, guid: 63a0a8037b6ffe143a220a92eae0206d, type: 3}
+>>>>>>> Stashed changes
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
