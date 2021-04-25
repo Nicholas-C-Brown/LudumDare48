@@ -49,7 +49,7 @@ public class MovePlayer : MonoBehaviour
         
         if (IsJumping()) state = State.IN_AIR;
         if (IsOOB()) Die();
-        FallingCheck();
+        //FallingCheck();
 
         GetInput();
         Move();
@@ -59,7 +59,7 @@ public class MovePlayer : MonoBehaviour
     private void FallingCheck()
     {
         LayerMask mask = LayerMask.GetMask("Default");
-        RaycastHit2D hit = Physics2D.Raycast(raycastTransform.position, Vector2.down, 0.2f, mask, 0, 0);
+        RaycastHit2D hit = Physics2D.Raycast(raycastTransform.position, Vector2.down, 0.5f, mask, 0, 0);
      
         if(hit.collider == null && (OnGround() || IsSliding())) state = State.IN_AIR;
     }
