@@ -6,7 +6,7 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour
 {
     private const float X_COORD_GEN_NEXT = 30.0f;
-    private const float X_COORD_DELETE_PREV = -15.0f;
+    private const float X_COORD_DELETE_PREV = -30.0f;
 
     [SerializeField] private Transform startingPart; //Starting prefab
     [SerializeField] private List<Transform> partList; //Prefab part list for generating

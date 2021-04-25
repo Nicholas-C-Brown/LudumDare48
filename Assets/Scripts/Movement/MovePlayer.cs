@@ -73,7 +73,7 @@ public class MovePlayer : MonoBehaviour
             standCollider.enabled = false;
             enabledCollider = slideCollider;
         }
-        else
+        else if(!IsState(State.DYING))
         {
             slideCollider.enabled = false;
             standCollider.enabled = true;
@@ -173,8 +173,9 @@ public class MovePlayer : MonoBehaviour
         //Stop map/enemy movement
         controller.GameOver();
 
-        //Disable Collider
-        enabledCollider.enabled = false;
+        //Destroy Colliders
+        standCollider.enabled = false;
+        slideCollider.enabled = false;
 
         //Play die animation
         animator.SetTrigger("Die");
@@ -193,7 +194,7 @@ public class MovePlayer : MonoBehaviour
     private bool RoofCheck()
     {
         float extraHeight = 0.5f;
-        RaycastHit2D hit = Physics2D.BoxCast(enabledCollider.bounds.center, enabledCollider.bounds.size, 0f, Vector2.up, extraHeight, mask);
+        RaycastHit2D hit = Physics2D.BoxCast(enabledCollider.bounds.center + (Vector3.up * extraHeight), enabledCollider.bounds.size, 0f, Vector2.up, 0, mask);
 
         if (hit.collider == null) return false;
         //Only return true if we collide with ground
