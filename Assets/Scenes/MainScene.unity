@@ -384,12 +384,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingPart: {fileID: 1835163339}
   partList:
+  - {fileID: 4852875411689505395, guid: 59b4bb091dd413f44990e784ef11f722, type: 3}
+  - {fileID: 4852875411689505395, guid: a37cdfc73ea8db443b89e9d421887160, type: 3}
+  - {fileID: 4852875411689505395, guid: 14191017d242f144683c8f23c66b9432, type: 3}
+  - {fileID: 5167004106301908085, guid: 883983debe7da684587e53624f3741fc, type: 3}
   - {fileID: 7583563930063889422, guid: e33e9a00fccc2fe4dba34fb202db8d2f, type: 3}
-<<<<<<< Updated upstream
-  - {fileID: 7583563930063889422, guid: cfd611839286d7649b5f63677ab76067, type: 3}
-=======
   - {fileID: 96643752815953355, guid: 63a0a8037b6ffe143a220a92eae0206d, type: 3}
->>>>>>> Stashed changes
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2152,6 +2152,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594373133}
   m_CullTransparentMesh: 1
+--- !u!4 &1681059338 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4899092259200486884, guid: 295675f1c95d5a840b1ae7b592e32707,
+    type: 3}
+  m_PrefabInstance: {fileID: 687182806220230115}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1775790558 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 687182807234719460, guid: 295675f1c95d5a840b1ae7b592e32707,
@@ -2370,6 +2376,16 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 512679059}
+    - target: {fileID: 687182807234719460, guid: 295675f1c95d5a840b1ae7b592e32707,
+        type: 3}
+      propertyPath: raycastTransform
+      value: 
+      objectReference: {fileID: 1681059338}
+    - target: {fileID: 4899092259200486884, guid: 295675f1c95d5a840b1ae7b592e32707,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 295675f1c95d5a840b1ae7b592e32707, type: 3}
 --- !u!1001 &968522172291314964
