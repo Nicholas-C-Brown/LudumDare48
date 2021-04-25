@@ -1256,7 +1256,7 @@ GameObject:
   - component: {fileID: 4852875411689505395}
   - component: {fileID: 3011116125806037999}
   m_Layer: 0
-  m_Name: LevelPeice2
+  m_Name: LevelPeice2-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

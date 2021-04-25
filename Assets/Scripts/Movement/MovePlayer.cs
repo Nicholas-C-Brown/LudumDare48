@@ -16,6 +16,8 @@ public class MovePlayer : MonoBehaviour
     private BoxCollider2D collider2d;
     [SerializeField]
     private Animator animator;
+    [SerializeField]
+    private Transform raycastTransform;
     
 
     [Header("Movement")]
@@ -43,28 +45,37 @@ public class MovePlayer : MonoBehaviour
 
     void Update()
     {
-        //Update to IN_AIR state the frame after the player jumps
-        if (IsJumping()) state = State.IN_AIR;
 
-        if (IsFalling()) Die();
+        
+        if (IsJumping()) state = State.IN_AIR;
+        if (IsOOB()) Die();
+        FallingCheck();
 
         GetInput();
         Move();
         Animate();
     }
 
+    private void FallingCheck()
+    {
+        LayerMask mask = LayerMask.GetMask("Default");
+        RaycastHit2D hit = Physics2D.Raycast(raycastTransform.position, Vector2.down, 0.2f, mask, 0, 0);
+     
+        if(hit.collider == null && (OnGround() || IsSliding())) state = State.IN_AIR;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Enemy Check
-        if (collision.gameObject.CompareTag(Globals.ENEMY_TAG))
-        {
-            Die();
-        }
-
         //Ground Check
         if (InAir() && collision.gameObject.CompareTag(Globals.GROUND_TAG))
         {
             state = State.ON_GROUND;
+        }
+
+        //Enemy Check
+        if (collision.gameObject.CompareTag(Globals.ENEMY_TAG))
+        {
+            Die();
         }
     }
 
@@ -148,7 +159,7 @@ public class MovePlayer : MonoBehaviour
         animator.SetTrigger("Die");
     }
 
-    public bool IsFalling()
+    public bool IsOOB()
     {
         return player.position.y < minY;   
     }
