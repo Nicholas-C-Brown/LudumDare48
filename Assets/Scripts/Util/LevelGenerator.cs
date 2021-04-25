@@ -16,7 +16,6 @@ public class LevelGenerator : MonoBehaviour
     private void Awake()
     {
         //Add the first part to the list for generation.
-        Debug.Log("bruh");
         currentParts.Add(startingPart);
         CreatePart();
         CreatePart();
