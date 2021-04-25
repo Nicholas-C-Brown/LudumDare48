@@ -98,12 +98,12 @@ MonoBehaviour:
   player: {fileID: 687182807234719462}
   collider2d: {fileID: 687182807234719463}
   animator: {fileID: 478272612572309900}
+  raycastTransform: {fileID: 4899092259200486884}
   moveSpeed: 1.5
   minX: -7
   maxX: -4
   minY: -5
   jumpForce: 750
-  state: 0
 --- !u!1 &2224556339129664841
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +128,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2224556339129664841}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 687182807234719456}
