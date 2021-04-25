@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,7 +19,8 @@ public class Background : MonoBehaviour
 
     private void Update()
     {
-        transform.position += Vector3.left * speed * Time.deltaTime;
+        float timeModifier = (float)Math.Pow(2, Time.timeSinceLevelLoad / 100);
+        transform.position += Vector3.left * speed * Time.deltaTime * timeModifier;
     }
 
 }

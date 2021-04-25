@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -52,7 +53,8 @@ public class Score : MonoBehaviour
     {
         if (playing)
         {
-            PlayerScore += Time.deltaTime * scoreMultiplier;
+            float timeModifier = (float)Math.Pow(2, Time.timeSinceLevelLoad / 100);
+            PlayerScore += Time.deltaTime * scoreMultiplier * timeModifier;
             scoreText.text = "Score: " + (int)PlayerScore + "m";
         }
     }
