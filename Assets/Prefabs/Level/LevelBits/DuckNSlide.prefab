@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 3617127770498339352}
   m_Layer: 0
   m_Name: DeathCeiling
-  m_TagString: Ground
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
