@@ -460,7 +460,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingPart: {fileID: 1835163339}
   partList:
+  - {fileID: 4852875411689505395, guid: 59b4bb091dd413f44990e784ef11f722, type: 3}
+  - {fileID: 4852875411689505395, guid: 14191017d242f144683c8f23c66b9432, type: 3}
   - {fileID: 4852875411689505395, guid: 0618dea0a13dc4841a149cda12b9d199, type: 3}
+  - {fileID: 4852875411689505395, guid: a37cdfc73ea8db443b89e9d421887160, type: 3}
+  - {fileID: 5167004106301908085, guid: 1ebd1cc8843d28340946d54a3979eab5, type: 3}
+  - {fileID: 5167004106301908085, guid: 883983debe7da684587e53624f3741fc, type: 3}
+  - {fileID: 4852875411689505395, guid: b70860817c156134db459f875f85ae8f, type: 3}
+  - {fileID: 7583563930063889422, guid: cfd611839286d7649b5f63677ab76067, type: 3}
+  - {fileID: 7583563930063889422, guid: e33e9a00fccc2fe4dba34fb202db8d2f, type: 3}
+  - {fileID: 96643752815953355, guid: 63a0a8037b6ffe143a220a92eae0206d, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
