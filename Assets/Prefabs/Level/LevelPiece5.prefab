@@ -278,6 +278,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 96643752815953355}
     m_Modifications:
+    - target: {fileID: 390209489506736856, guid: 45fda3b2858fd9f49a85028391c43807,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 8.637274
+      objectReference: {fileID: 0}
+    - target: {fileID: 390209489506736856, guid: 45fda3b2858fd9f49a85028391c43807,
+        type: 3}
+      propertyPath: m_DrawMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1085436339745886790, guid: 45fda3b2858fd9f49a85028391c43807,
         type: 3}
       propertyPath: m_RootOrder
@@ -333,10 +343,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1183039477380585688, guid: 45fda3b2858fd9f49a85028391c43807,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 10.25098
+      objectReference: {fileID: 0}
+    - target: {fileID: 3134194491455017023, guid: 45fda3b2858fd9f49a85028391c43807,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.2428
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576452850670700073, guid: 45fda3b2858fd9f49a85028391c43807,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.2586
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387899516149404940, guid: 45fda3b2858fd9f49a85028391c43807,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.4539
+      objectReference: {fileID: 0}
     - target: {fileID: 6346488167941265300, guid: 45fda3b2858fd9f49a85028391c43807,
         type: 3}
       propertyPath: m_Name
       value: DuckNSlide
+      objectReference: {fileID: 0}
+    - target: {fileID: 7939490078112354929, guid: 45fda3b2858fd9f49a85028391c43807,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 8.605634
+      objectReference: {fileID: 0}
+    - target: {fileID: 7939490078112354929, guid: 45fda3b2858fd9f49a85028391c43807,
+        type: 3}
+      propertyPath: m_DrawMode
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45fda3b2858fd9f49a85028391c43807, type: 3}
