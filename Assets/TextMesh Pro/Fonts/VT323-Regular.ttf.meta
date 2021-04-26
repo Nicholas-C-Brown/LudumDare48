@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 18bbf855ba72a924e9f0480f942cd064
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - VT323
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: e24df1354396df94fa0cc37e2076bf4f, type: 3}
+  - {fileID: 12800000, guid: 079bb25e3e000c64b897bf99dc269fb1, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
