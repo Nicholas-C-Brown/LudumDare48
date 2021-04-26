@@ -8,11 +8,15 @@ public class GameController : MonoBehaviour
 {
 
     public Action GameOverAction;
+    public AudioManager audio;
+
+
 
     private void Start()
     {
         //Reset global move speed
         Globals.MOVE_SPEED = new Vector2(-5f, 0f);
+        audio.Play("Music");
     }
 
     public void GameOver()

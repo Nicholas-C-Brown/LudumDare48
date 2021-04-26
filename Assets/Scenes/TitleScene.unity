@@ -912,6 +912,7 @@ GameObject:
   - component: {fileID: 2024272549}
   - component: {fileID: 2024272548}
   - component: {fileID: 2024272550}
+  - component: {fileID: 2024272551}
   m_Layer: 0
   m_Name: GameController (1)
   m_TagString: GameController
@@ -931,6 +932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bea2103b0709212429c95534701eea2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audio: {fileID: 2024272551}
 --- !u!4 &2024272549
 Transform:
   m_ObjectHideFlags: 0
@@ -960,6 +962,25 @@ MonoBehaviour:
   startingPart: {fileID: 1649360184}
   partList:
   - {fileID: 1204781614376828775, guid: 4d11275f9ced5c541a59c14665849a6d, type: 3}
+--- !u!114 &2024272551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024272547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9c6a3e08204b024cb425e6e6801fedf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - Name: Music
+    Clip: {fileID: 8300000, guid: b429eeb0f99b72a439872cf74115a5a7, type: 3}
+    Volume: 0.5
+    Pitch: 1
+    Loop: 1
+    Source: {fileID: 0}
 --- !u!1 &2082687048
 GameObject:
   m_ObjectHideFlags: 0
